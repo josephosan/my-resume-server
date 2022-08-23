@@ -10,7 +10,8 @@ const app = express();
 
 
 // connecting to database
-mongoose.connect(config.DBLocalURL())
+const dbURL = config.DBCloudURL();
+mongoose.connect(dbURL)
   .then(res => {
     debug('Connected to mongoDB database...');
   })

@@ -52,7 +52,7 @@ router.post('/', validator(contactValidation), async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: 'From saved successfully',
+      message: 'Form saved successfully',
       res: contactData
     });
   } catch(err) {
