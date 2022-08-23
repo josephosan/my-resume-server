@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const debug = require('debug')('app:debug');
 const config = require('./config/config');
 const morgan = require('morgan');
+const contact = require('./routes/contact');
 
 const app = express();
 
@@ -23,6 +24,9 @@ app.use(express.json());
 app.use(helmet())
 app.use(morgan('tiny'));
 
+
+// useing routes
+app.use('/contact', contact);
 
 
 // listening on port
