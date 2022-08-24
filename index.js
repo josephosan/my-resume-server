@@ -12,7 +12,9 @@ const app = express();
 
 
 // connecting to database
-const dbURL = config.DBCloudURL();
+const userName = process.env.NAME+'';
+const password = process.env.PASSWORD+'';
+const dbURL = config.DBCloudURL(userName, password);
 mongoose.connect(dbURL)
   .then(res => {
     debug('Connected to mongoDB database...');
