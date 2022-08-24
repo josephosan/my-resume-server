@@ -6,6 +6,7 @@ const config = require('./config/config');
 const morgan = require('morgan');
 const contact = require('./routes/contact');
 const home = require('./routes/home');
+const cors = require('cors');
 
 
 const app = express();
@@ -28,6 +29,7 @@ mongoose.connect(dbURL)
 app.use(express.json());
 app.use(helmet())
 app.use(morgan('tiny'));
+app.use(cors());
 
 
 // useing routes
