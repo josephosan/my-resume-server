@@ -5,6 +5,8 @@ const debug = require('debug')('app:debug');
 const config = require('./config/config');
 const morgan = require('morgan');
 const contact = require('./routes/contact');
+const home = require('./routes/home');
+
 
 const app = express();
 
@@ -28,6 +30,7 @@ app.use(morgan('tiny'));
 
 // useing routes
 app.use('/contact', contact);
+app.use('/', home);
 
 
 // listening on port
