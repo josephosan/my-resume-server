@@ -16,6 +16,7 @@ const app = express();
 const userName = process.env.NAME+'';
 const password = process.env.PASSWORD+'';
 const dbURL = config.DBCloudURL(userName, password);
+const dbLocalURL = config.DBLocalURL();
 mongoose.connect(dbURL)
   .then(res => {
     debug('Connected to mongoDB database...');
@@ -29,7 +30,9 @@ mongoose.connect(dbURL)
 app.use(express.json());
 app.use(helmet())
 app.use(morgan('tiny'));
-app.use(cors());
+app.use(cors({
+  'Access-Control-Allow-Origin': '*'
+}));
 
 
 // useing routes
