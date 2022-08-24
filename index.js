@@ -28,11 +28,11 @@ mongoose.connect(dbURL)
 
 // using some services
 app.use(express.json());
+app.use(cors({
+  origin: '*'
+}));
 app.use(helmet())
 app.use(morgan('tiny'));
-app.use(cors({
-  'Access-Control-Allow-Origin': '*'
-}));
 
 
 // useing routes
